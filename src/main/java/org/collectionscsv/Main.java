@@ -7,8 +7,9 @@ public class Main {
         var listLoader = new ListLoader();
         try {
             var list = listLoader.ReadFromFile("foreign_names.csv");
+            var printer = new DTOPrinter();
             for (var item: list) {
-                System.out.println(item);
+                printer.printEmployee(item);
             }
         }
         catch (Exception e) {
