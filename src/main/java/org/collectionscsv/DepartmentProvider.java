@@ -4,19 +4,16 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 public class DepartmentProvider {
-    private static Dictionary<String, Integer> departments = new Hashtable();
-    private static int freeId;
-    public static synchronized DepartmentDTO getDepartmentDTO(String name) {
-        var dto = new DepartmentDTO();
-        var id = departments.get("name");
-        if (id != null) {
-            dto.id = id;
-        }
-        else {
-            departments.put(name, freeId);
+    private Dictionary<String, DepartmentDTO> departments = new Hashtable();
+    private int freeId;
+    public synchronized DepartmentDTO getDepartmentDTO(String name) {
+        var dto = departments.get(name);
+        if (dto == null) {
+            dto = new DepartmentDTO();
             dto.id = freeId++;
+            dto.name = name;
+            departments.put(name, dto);
         }
-        dto.name = name;
         return dto;
     }
 }

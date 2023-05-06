@@ -4,7 +4,8 @@ package org.collectionscsv;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        var listLoader = new ListLoader();
+        var departmentProvider = new DepartmentProvider();
+        var listLoader = new ListLoader(departmentProvider);
         try {
             var list = listLoader.ReadFromFile("foreign_names.csv");
             var printer = new DTOPrinter();

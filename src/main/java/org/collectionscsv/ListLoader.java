@@ -15,6 +15,11 @@ import java.util.Objects;
 
 public class ListLoader {
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd.mm.yyyy");
+    private DepartmentProvider departmentProvider;
+
+    public ListLoader(DepartmentProvider departmentProvider) {
+        this.departmentProvider = departmentProvider;
+    }
 
     public List<EmployeeDTO> ReadFromFile(String filename)
             throws IOException, ParseException {
@@ -59,7 +64,7 @@ public class ListLoader {
     }
 
     private DepartmentDTO parseDepartmentDTO(String string) {
-        return DepartmentProvider.getDepartmentDTO(string);
+        return departmentProvider.getDepartmentDTO(string);
     }
 
 }
