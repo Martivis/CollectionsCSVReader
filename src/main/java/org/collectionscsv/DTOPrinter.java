@@ -9,6 +9,11 @@ import java.util.Date;
 public class DTOPrinter {
     private DateFormat dateFormat = new SimpleDateFormat("dd.mm.yyyy");
 
+    /**
+     * Prints data from DTO to console.
+     *
+     * @param dto DTO to be printed
+     */
     public void printEmployee(EmployeeDTO dto) {
         System.out.print("Id: ");
         System.out.println(dto.id);
@@ -36,6 +41,11 @@ public class DTOPrinter {
         return dateFormat.format(date);
     }
 
+    /**
+     * Prints data from DTO to console.
+     *
+     * @param dto DTO to be printed
+     */
     public void printDepartment(DepartmentDTO dto) {
         System.out.print("Id: ");
         System.out.println(dto.id);

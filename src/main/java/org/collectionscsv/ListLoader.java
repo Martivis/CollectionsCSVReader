@@ -21,6 +21,16 @@ public class ListLoader {
         this.departmentProvider = departmentProvider;
     }
 
+    /**
+     * Reads the list of EmployeeDTOs from .csv file.
+     * Department field will be filled with departmentDTO got from DepartmentProvider
+     * with name read from file.
+     *
+     * @param filename The name of .csv file contains data
+     * @return List of EmployeeDTOs
+     * @throws IOException Thrown if there are errors during file reading.
+     * @throws ParseException Thrown if .csv file doesn't contain proper data.
+     */
     public List<EmployeeDTO> ReadFromFile(String filename)
             throws IOException, ParseException {
         var list = new ArrayList<EmployeeDTO>();
