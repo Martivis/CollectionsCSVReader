@@ -59,9 +59,7 @@ public class ListLoader {
     }
 
     private DepartmentDTO parseDepartmentDTO(String string) {
-        var department = new DepartmentDTO();
-        department.name = string;
-        return department;
+        return DepartmentProvider.getDepartmentDTO(string);
     }
 
 }
