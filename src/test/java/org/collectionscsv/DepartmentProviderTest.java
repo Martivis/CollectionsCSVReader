@@ -78,4 +78,34 @@ class DepartmentProviderTest {
         assertEquals(expected.id, actual.id);
         assertEquals(expected.name, actual.name);
     }
+
+    @Test
+    public void getDepartmentDTO_sameObject() {
+        // arrange
+        var provider = new DepartmentProvider();
+        var name = "A";
+
+        // act
+        var firstDTO = provider.getDepartmentDTO(name);
+        var secondDTO = provider.getDepartmentDTO(name);
+
+        // assert
+        assertSame(firstDTO, secondDTO);
+    }
+
+    @Test
+    public void getDepartmentDTO_editedObject() {
+        // arrange
+        var provider = new DepartmentProvider();
+        var name = "A";
+        var newName = "B";
+
+        // act
+        var firstDTO = provider.getDepartmentDTO(name);
+        firstDTO.name = newName;
+        var secondDTO = provider.getDepartmentDTO(name);
+
+        // assert
+        assertEquals(newName, secondDTO.name);
+    }
 }
